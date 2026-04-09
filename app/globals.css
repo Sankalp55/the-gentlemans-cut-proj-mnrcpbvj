@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Noir Razor palette as HSL CSS variables (derived from blueprint hex) */
+:root {
+  --background: 240 13% 5%; /* #0B0B0E */
+  --foreground: 39 38% 93%; /* #F5F1E8 */
+
+  --card: 233 17% 8%; /* #111218 */
+  --border: 233 10% 18%; /* #2A2B33 */
+  --ring: 47 65% 53%; /* #D4AF37 */
+
+  --primary: 47 65% 53%; /* #D4AF37 */
+  --primary-foreground: 240 13% 5%; /* #0B0B0E */
+
+  --secondary: 232 12% 12%; /* #1B1C22 */
+  --secondary-foreground: 39 38% 93%; /* #F5F1E8 */
+
+  --accent: 0 73% 42%; /* #B91C1C */
+  --accent-foreground: 33 100% 96%; /* #FFF7ED */
+
+  --muted: 230 13% 9%; /* #14151A */
+  --muted-foreground: 44 7% 63%; /* #A7A39A */
+}
+
+/* Blueprint themeMode: dark */
+.dark {
+  --background: 240 13% 5%;
+  --foreground: 39 38% 93%;
+
+  --card: 233 17% 8%;
+  --border: 233 10% 18%;
+  --ring: 47 65% 53%;
+
+  --primary: 47 65% 53%;
+  --primary-foreground: 240 13% 5%;
+
+  --secondary: 232 12% 12%;
+  --secondary-foreground: 39 38% 93%;
+
+  --accent: 0 73% 42%;
+  --accent-foreground: 33 100% 96%;
+
+  --muted: 230 13% 9%;
+  --muted-foreground: 44 7% 63%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
