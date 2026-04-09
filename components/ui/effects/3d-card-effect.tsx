@@ -1,71 +1,61 @@
-import * as React from "react";
+'use client';
 
-export type CardContainerProps = React.HTMLAttributes<HTMLDivElement> & {
-  /** Optional className for the outer container */
-  className?: string;
-};
+import * as React from 'react';
 
-export function CardContainer({ className, ...props }: CardContainerProps) {
-  return (
-    <div
-      className={className}
-      style={{ perspective: "1000px" }}
-      {...props}
-    />
-  );
-}
+type DivProps = React.HTMLAttributes<HTMLDivElement>;
 
-export type CardBodyProps = React.HTMLAttributes<HTMLDivElement> & {
-  className?: string;
-};
-
-export function CardBody({ className, style, ...props }: CardBodyProps) {
-  return (
-    <div
-      className={className}
-      style={{
-        transformStyle: "preserve-3d",
-        ...style,
-      }}
-      {...props}
-    />
-  );
-}
-
-export type CardItemProps<T extends React.ElementType = "div"> = {
-  as?: T;
-  className?: string;
+type CardItemProps = DivProps & {
   /**
-   * Common API used by many 3D card snippets.
-   * We accept it but do not require any specific behavior.
+   * Optional translateZ value used by some 3D card implementations.
+   * Accepts number (pixels) or string (e.g. '40px').
    */
   translateZ?: number | string;
-} & Omit<React.ComponentPropsWithoutRef<T>, "as" | "className">;
+  as?: React.ElementType;
+};
 
-export function CardItem<T extends React.ElementType = "div">({
-  as,
+export function CardContainer({ className, ...props }: DivProps) {
+  return (
+    <div
+      className={className}
+      style={{ perspective: '1000px' }}
+      {...props}
+    />
+  );
+}
+
+export function CardBody({ className, ...props }: DivProps) {
+  return (
+    <div
+      className={className}
+      style={{ transformStyle: 'preserve-3d' }}
+      {...props}
+    />
+  );
+}
+
+export function CardItem({
+  className,
   translateZ,
+  as: Comp = 'div',
   style,
   ...props
-}: CardItemProps<T>) {
-  const Comp = (as ?? "div") as React.ElementType;
-
+}: CardItemProps) {
   const tz =
-    typeof translateZ === "number"
+    typeof translateZ === 'number'
       ? `${translateZ}px`
-      : typeof translateZ === "string"
+      : typeof translateZ === 'string'
         ? translateZ
         : undefined;
 
   return (
     <Comp
+      className={className}
       style={{
-        ...(style as React.CSSProperties),
-        ...(tz ? { transform: `translateZ(${tz})` } : null),
+        ...style,
+        transform: tz ? `translateZ(${tz})` : style?.transform,
+        transformStyle: 'preserve-3d'
       }}
-      {...(props as any)}
+      {...props}
     />
   );
 }
-
-export default CardContainer;

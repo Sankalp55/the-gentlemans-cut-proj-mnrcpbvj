@@ -1,177 +1,192 @@
 import { TeamGrid } from '@/components/blocks/TeamGrid'
-import { TestimonialsAnimated } from '@/components/blocks/TestimonialsAnimated'
-import { CTABanner } from '@/components/blocks/CTABanner'
-
-export const metadata = {
-  title: 'Team — The Gentlemans Cut',
-  description:
-    'Meet the barbers behind the craft: specialists in fades, scissor work, beard symmetry, and traditional hot towel shaves.',
-}
+import { AnimatedTooltip } from '@/components/ui/effects/AnimatedTooltip'
+import { InfiniteMovingCards } from '@/components/ui/effects/InfiniteMovingCards'
+import { CTAVortex } from '@/components/blocks/CTAVortex'
 
 export default function TeamPage() {
-  return (
-    <div>
-      <section className="py-16 md:py-28 px-4 md:px-8">
-        <div className="max-w-7xl mx-auto">
-          <p className="text-sm text-muted-foreground">Team</p>
-          <h1 className="mt-3 text-4xl md:text-5xl font-bold tracking-tight">
-            Meet the barbers behind the craft.
-          </h1>
-          <p className="mt-4 text-muted-foreground max-w-3xl">
-            Different hair types and style goals need different strengths. Our team specializes in
-            fades, scissor work, beard symmetry, and traditional straight-razor technique—so you can
-            book with confidence and get consistent results.
-          </p>
+  const members = [
+    {
+      name: 'Miles Carter',
+      role: 'Master Barber • Owner',
+      bio: 'Precision fades and classic scissor work. Known for consults that actually land the right cut—especially for clients who want a style that grows out clean.',
+      imageUrl: '/images/team/miles.jpg',
+    },
+    {
+      name: 'Andre Silva',
+      role: 'Senior Barber',
+      bio: 'Razor detail and beard artistry. Calm chair, meticulous finish, and a strong eye for symmetry—ideal if you care about crisp edges and irritation-free shaves.',
+      imageUrl: '/images/team/andre.jpg',
+    },
+    {
+      name: 'Noah Kim',
+      role: 'Color & Style Specialist',
+      bio: 'Gray blending, natural color work, and styling routines that match your lifestyle. Great for clients who want subtle improvements that look professional, not “dyed.”',
+      imageUrl: '/images/team/noah.jpg',
+    },
+    {
+      name: 'Samira Reed',
+      role: 'Scalp & Treatment Specialist',
+      bio: 'Scalp health focus—detox, hydration, and tension relief with a clean finish. Perfect if dryness, flaking, or product buildup is getting in the way of your best hair.',
+      imageUrl: '/images/team/samira.jpg',
+    },
+  ]
 
-          <div className="mt-8 flex flex-col sm:flex-row gap-3">
-            <a
-              href="/contact#booking"
-              className="inline-flex items-center justify-center rounded-lg bg-primary px-5 py-3 text-primary-foreground font-medium"
-            >
-              Book With a Barber
-            </a>
-            <a
-              href="/services"
-              className="inline-flex items-center justify-center rounded-lg border border-border bg-background px-5 py-3 font-medium"
-            >
-              See Services
-            </a>
+  return (
+    <div className="bg-background text-foreground">
+      <section className="py-20 md:py-28 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="max-w-3xl">
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+              Meet the barbers behind the craft.
+            </h1>
+            <p className="mt-4 text-muted-foreground">
+              Different specialties—same standard: sharp, respectful, consistent. If you’re not sure
+              who to book with, choose “No preference” and describe your goal. We’ll match you with
+              the best fit.
+            </p>
+            <div className="mt-8">
+              <a
+                href="/contact#booking"
+                className="inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground px-5 py-3 font-medium"
+              >
+                Book With a Barber
+              </a>
+            </div>
+          </div>
+
+          <div className="mt-12 rounded-xl border border-border bg-muted p-8">
+            <h2 className="text-2xl font-semibold">Quick pick</h2>
+            <p className="mt-2 text-muted-foreground">
+              Hover to see specialties—then book your chair.
+            </p>
+            <div className="mt-6">
+              <AnimatedTooltip
+                items={[
+                  {
+                    id: 1,
+                    name: 'Miles Carter',
+                    designation: 'Fades • Classic cuts • Beard structure',
+                    image: '/images/team/miles.jpg',
+                  },
+                  {
+                    id: 2,
+                    name: 'Andre Silva',
+                    designation: 'Hot towel shaves • Line-ups • Beard grooming',
+                    image: '/images/team/andre.jpg',
+                  },
+                  {
+                    id: 3,
+                    name: 'Noah Kim',
+                    designation: 'Color • Styling • Texture work',
+                    image: '/images/team/noah.jpg',
+                  },
+                  {
+                    id: 4,
+                    name: 'Samira Reed',
+                    designation: 'Scalp treatments • Massage • Sensitive skin care',
+                    image: '/images/team/samira.jpg',
+                  },
+                ]}
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="py-16 md:py-28 px-4 md:px-8 bg-muted">
+      <section className="py-20 md:py-28 px-4 md:px-8 bg-muted">
         <div className="max-w-7xl mx-auto">
           <TeamGrid
             headline="Barber profiles"
-            subheadline="Book your preferred barber—or choose “first available” and we’ll match you based on your goals."
-            members={[
-              {
-                name: 'Adrian Cole',
-                role: 'Master Barber • Fades & Texture',
-                bio: 'Known for clean blends and texture that grows out naturally. Detail-first, always—especially around the temples and neckline.',
-                imageUrl: 'https://images.pexels.com/photos/1432670/pexels-photo-1432670.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-              },
-              {
-                name: 'Malik Rivers',
-                role: 'Barber • Beard Sculpt & Line Work',
-                bio: 'Beard symmetry and edge work with a natural finish—sharp without looking drawn on. Great for first-time beard shaping.',
-                imageUrl: 'https://images.pexels.com/photos/32778341/pexels-photo-32778341.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-              },
-              {
-                name: 'Kenji Sato',
-                role: 'Senior Barber • Classic & Modern',
-                bio: 'Classic shapes, modern styling, and calm consultations that nail the brief. Ideal if you want a cut that looks professional and effortless.',
-                imageUrl: 'https://images.pexels.com/photos/20552667/pexels-photo-20552667.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-              },
-              {
-                name: 'Rafael Ortiz',
-                role: 'Barber • Shaves & Scalp Care',
-                bio: 'Traditional straight-razor technique paired with modern scalp health treatments. Excellent for sensitive skin and comfort-focused routines.',
-                imageUrl: 'https://images.pexels.com/photos/12969342/pexels-photo-12969342.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-              },
-            ]}
+            subheadline="Choose by style, pace, or specialty."
+            members={members}
           />
-
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { name: 'Adrian Cole', availability: 'Tue–Sat', specialties: 'Skin fades • Texture • Scissor refinement' },
-              { name: 'Malik Rivers', availability: 'Wed–Sun', specialties: 'Beard sculpt • Line-ups • Hot towel finish' },
-              { name: 'Kenji Sato', availability: 'Mon–Fri', specialties: 'Classic taper • Medium scissor • Styling' },
-              { name: 'Rafael Ortiz', availability: 'Thu–Sun', specialties: 'Hot towel shaves • Scalp detox • Sensitive-skin' },
-            ].map((m) => (
-              <div key={m.name} className="rounded-xl border border-border bg-card p-6 shadow-sm">
-                <div className="font-semibold">{m.name}</div>
-                <div className="mt-1 text-sm text-muted-foreground">Availability: {m.availability}</div>
-                <div className="mt-3 text-sm">{m.specialties}</div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
-      <section className="py-16 md:py-28 px-4 md:px-8">
+      <section className="py-20 md:py-28 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">How we work</h2>
-            <p className="mt-3 text-muted-foreground">
-              Consistency isn’t an accident—it’s standards, timing, and a process that protects the
-              details.
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight">What we stand for</h2>
+            <p className="mt-4 text-muted-foreground">
+              The culture is simple: craft, respect, and consistency. We’d rather do fewer
+              appointments per day and keep the standard high than rush through volume.
             </p>
           </div>
 
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
+              { title: 'No rush', description: 'We keep the schedule tight so the work stays clean.' },
               {
-                title: 'Consultation first',
-                description:
-                  'We align on the look and maintenance plan before we cut—so there are no surprises at the end.',
+                title: 'No guesswork',
+                description: 'Consultation and confirmation before we start.',
               },
-              {
-                title: 'Sanitation standards',
-                description:
-                  'Tools disinfected, stations reset, fresh towels and capes—every client, every time.',
-              },
-              {
-                title: 'No-rush timing',
-                description:
-                  'Buffered appointments protect quality. If you need extra time, we’ll recommend the right booking.',
-              },
-              {
-                title: 'Education included',
-                description:
-                  'We show you how to style it at home quickly, plus what to do between visits to keep it sharp.',
-              },
+              { title: 'No ego', description: 'Premium service without the attitude.' },
+              { title: 'No shortcuts', description: 'Detail checks and finish work every time.' },
             ].map((v) => (
               <div
                 key={v.title}
-                className="rounded-xl border border-border bg-card p-6 shadow-sm hover:shadow-md transition-shadow"
+                className="rounded-xl border border-border bg-card text-card-foreground shadow-sm p-6"
               >
-                <div className="text-lg font-semibold">{v.title}</div>
-                <p className="mt-2 text-sm text-muted-foreground">{v.description}</p>
+                <h3 className="text-lg font-semibold">{v.title}</h3>
+                <p className="mt-2 text-muted-foreground">{v.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-16 md:py-28 px-4 md:px-8 bg-muted">
+      <section className="py-20 md:py-28 px-4 md:px-8 bg-muted">
         <div className="max-w-7xl mx-auto">
-          <TestimonialsAnimated
-            headline="Why clients book the same barber every time"
-            testimonials={[
-              {
-                quote:
-                  'Adrian fixed a cut I hated and turned it into my best look. The consultation alone was worth it.',
-                name: 'Sam W.',
-                role: 'Haircut consultation + fade',
-                company: 'Returning client',
-              },
-              {
-                quote: 'Malik’s beard work is unmatched—balanced and clean.',
-                name: 'Omar H.',
-                role: 'Beard grooming',
-                company: 'Regular',
-              },
-              {
-                quote: 'Kenji nails classic cuts with modern texture.',
-                name: 'Ryan C.',
-                role: 'Scissor cut',
-                company: 'Professional client',
-              },
-            ]}
-          />
+          <div className="max-w-3xl">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+              Clients book barbers, not buildings.
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              A few notes about the team experience—communication, consistency, and a finish that
+              holds up.
+            </p>
+          </div>
+
+          <div className="mt-10">
+            <InfiniteMovingCards
+              direction="right"
+              speed="slow"
+              items={[
+                {
+                  quote: 'Miles nailed the shape. It looks good day one and week three.',
+                  name: 'Caleb W.',
+                  title: 'Engineer',
+                },
+                {
+                  quote: 'Andre’s razor work is the cleanest I’ve had. No irritation.',
+                  name: 'Theo P.',
+                  title: 'Sales',
+                },
+                {
+                  quote: 'Samira’s scalp treatment fixed the dryness in two visits.',
+                  name: 'Omar H.',
+                  title: 'Trainer',
+                },
+              ]}
+            />
+          </div>
         </div>
       </section>
 
-      <section className="py-16 md:py-28 px-4 md:px-8">
+      <section className="py-20 md:py-28 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
-          <CTABanner
-            headline="Book with confidence."
-            description='Pick a barber—or choose “first available” and we’ll match you based on your goals.'
-            ctaLabel="Start Booking"
+          <CTAVortex
+            headline="Pick your barber. Lock your time."
+            description="Tell us your goal and we’ll confirm your appointment."
+            ctaLabel="Request a Booking"
             ctaHref="/contact#booking"
           />
+          <div className="mt-6 text-center text-sm text-muted-foreground">
+            Want to compare services first?
+            <a className="ml-2 underline underline-offset-4 hover:text-foreground" href="/services">
+              See Services
+            </a>
+          </div>
         </div>
       </section>
     </div>

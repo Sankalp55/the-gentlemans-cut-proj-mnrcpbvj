@@ -1,257 +1,256 @@
 import { PricingTable } from '@/components/blocks/PricingTable'
 import { FAQAccordion } from '@/components/blocks/FAQAccordion'
-import { CTABanner } from '@/components/blocks/CTABanner'
-import { FeaturesCards3D } from '@/components/blocks/FeaturesCards3D'
-
-export const metadata = {
-  title: 'Services & Pricing — The Gentlemans Cut',
-  description:
-    'Explore haircuts, beard grooming, hot towel shaves, scalp treatments, and transparent pricing. Book your appointment online.',
-}
+import { CTAVortex } from '@/components/blocks/CTAVortex'
 
 export default function ServicesPage() {
   return (
-    <div>
-      <section className="py-16 md:py-28 px-4 md:px-8">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-          <div>
-            <p className="text-sm text-muted-foreground">Services</p>
-            <h1 className="mt-3 text-4xl md:text-5xl font-bold tracking-tight">
-              Services built for precision—and longevity.
+    <div className="bg-background text-foreground">
+      <section className="py-20 md:py-28 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="max-w-3xl">
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+              Services built for precision—and repeatability.
             </h1>
             <p className="mt-4 text-muted-foreground">
-              Every service starts with a consultation and ends with a finish tailored to your hair
-              type, skin comfort, and daily routine. We focus on clean structure and detail so your
-              cut holds its shape as it grows out.
+              Straightforward pricing, thoughtful upgrades, and results you can count on. We keep
+              the menu simple: core services that cover most goals, plus add-ons that dial in the
+              details without turning your appointment into an upsell.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
               <a
                 href="/contact#booking"
-                className="inline-flex items-center justify-center rounded-lg bg-primary px-5 py-3 text-primary-foreground font-medium"
+                className="inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground px-5 py-3 font-medium"
               >
-                Book a Service
+                Request a Booking
               </a>
               <a
-                href="#pricing"
-                className="inline-flex items-center justify-center rounded-lg border border-border bg-background px-5 py-3 font-medium"
+                href="/gallery"
+                className="inline-flex items-center justify-center rounded-md border border-border bg-background px-5 py-3 font-medium hover:bg-muted transition-colors"
               >
-                Jump to Pricing
+                See Real Results
               </a>
             </div>
           </div>
 
-          <div className="rounded-3xl border border-border bg-card p-6 shadow-sm">
-            <h2 className="text-lg font-semibold">What to expect</h2>
-            <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-              <li>
-                <span className="text-foreground font-medium">Consultation:</span> face shape,
-                growth patterns, and maintenance plan.
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: 'Haircut',
+                description: 'Consultation + cut + wash (optional) + style finish.',
+                price: '$45',
+                duration: '45 min',
+              },
+              {
+                title: 'Beard Grooming',
+                description: 'Shape, line-up, trim, and conditioning finish.',
+                price: '$30',
+                duration: '30 min',
+              },
+              {
+                title: 'Hair Styling',
+                description: 'Blow-dry + product set + direction for your daily routine.',
+                price: '$25',
+                duration: '25 min',
+              },
+              {
+                title: 'Hair Coloring',
+                description: 'Gray blending or full color (consult required).',
+                price: 'From $85',
+                duration: '60–120 min',
+              },
+              {
+                title: 'Hot Towel Shave',
+                description: 'Hot towel prep + straight razor shave + soothing finish.',
+                price: '$55',
+                duration: '45 min',
+              },
+              {
+                title: 'Scalp Treatment',
+                description: 'Exfoliate + cleanse + massage + hydration or anti-buildup focus.',
+                price: '$40',
+                duration: '35 min',
+              },
+            ].map((s) => (
+              <div
+                key={s.title}
+                className="rounded-xl border border-border bg-card text-card-foreground shadow-sm p-6 hover:shadow-md transition-shadow"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <h2 className="text-xl font-semibold">{s.title}</h2>
+                  <div className="text-right">
+                    <div className="text-lg font-semibold">{s.price}</div>
+                    <div className="text-sm text-muted-foreground">{s.duration}</div>
+                  </div>
+                </div>
+                <p className="mt-3 text-muted-foreground">{s.description}</p>
+                <div className="mt-6">
+                  <a
+                    href="/contact#booking"
+                    className="inline-flex items-center justify-center rounded-md bg-muted px-4 py-2 text-sm font-medium hover:bg-background border border-border transition-colors"
+                  >
+                    Request this service
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div id="scalp" className="mt-14 rounded-xl border border-border bg-muted p-8">
+            <h3 className="text-2xl font-semibold">Scalp care that supports better cuts</h3>
+            <p className="mt-3 text-muted-foreground max-w-3xl">
+              Dryness, buildup, and tension change how hair sits and how clean a fade looks. Our
+              scalp treatment is designed to reset the foundation—so your style looks better and
+              feels better between visits.
+            </p>
+            <ul className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-muted-foreground">
+              <li className="rounded-lg border border-border bg-background p-4">
+                <span className="font-medium text-foreground">Exfoliation</span>
+                <div className="mt-1">Lifts buildup so product performs the way it should.</div>
               </li>
-              <li>
-                <span className="text-foreground font-medium">Precision work:</span> symmetry checks
-                and clean detailing under multiple angles.
+              <li className="rounded-lg border border-border bg-background p-4">
+                <span className="font-medium text-foreground">Massage</span>
+                <div className="mt-1">Reduces tension and helps you leave feeling reset.</div>
               </li>
-              <li>
-                <span className="text-foreground font-medium">Finish:</span> styling and product
-                pairing based on your routine (matte, natural, or slick).
-              </li>
-              <li>
-                <span className="text-foreground font-medium">Timing:</span> buffered appointments
-                so you’re never rushed out of the chair.
+              <li className="rounded-lg border border-border bg-background p-4">
+                <span className="font-medium text-foreground">Hydration</span>
+                <div className="mt-1">Targets dryness and flaking without heavy residue.</div>
               </li>
             </ul>
           </div>
         </div>
       </section>
 
-      <section className="py-16 md:py-28 px-4 md:px-8 bg-muted">
-        <div className="max-w-7xl mx-auto">
-          <FeaturesCards3D
-            badge="Core services"
-            headline="What we do"
-            subheadline="From tight fades to traditional shaves—each service is designed to look sharp now and still look intentional later."
-            features={[
-              {
-                title: 'Haircuts',
-                description:
-                  'Fades, tapers, classic cuts, and scissor work with clean neck detailing and balanced shape.',
-              },
-              {
-                title: 'Beard Grooming',
-                description:
-                  'Sculpt, shape, and soften with a natural finish that fits your face—sharp without looking overdone.',
-              },
-              {
-                title: 'Hair Styling',
-                description:
-                  'Blow-dry, texture, and product selection matched to your daily routine so it’s easy to maintain.',
-              },
-              {
-                title: 'Hair Coloring',
-                description:
-                  'Gray blending, tone refresh, and natural-looking color work (consult required for complex changes).',
-              },
-              {
-                title: 'Hot Towel Shaves',
-                description:
-                  'Traditional straight-razor shave with hot towels and a skin-calming finish designed to reduce irritation.',
-              },
-              {
-                title: 'Scalp Treatments',
-                description:
-                  'Detox + exfoliation + massage to reset scalp comfort and reduce buildup—especially helpful for dryness.',
-              },
-            ]}
-          />
-        </div>
-      </section>
-
-      <section id="pricing" className="py-16 md:py-28 px-4 md:px-8">
+      <section className="py-20 md:py-28 px-4 md:px-8 bg-muted">
         <div className="max-w-7xl mx-auto">
           <PricingTable
-            headline="Transparent pricing"
-            subheadline="No surprises. Add-ons are available during your consultation."
+            headline="Popular combos"
+            subheadline="Best value packages—built from what clients actually book."
             tiers={[
               {
-                name: 'Essential',
-                price: '$35',
+                name: 'The Standard',
+                price: '$65',
                 period: 'per visit',
-                features: ['Consultation', 'Cut (clipper/scissor)', 'Neck cleanup', 'Style finish'],
-                ctaLabel: 'Book Essential',
-                ctaHref: '/contact#booking?service=essential',
+                features: ['Consultation', 'Detailed line-up', 'Finish styling', 'Aftercare tips'],
+                ctaLabel: 'Book The Standard',
+                ctaHref: '/contact#booking',
               },
               {
-                name: 'Signature',
-                price: '$55',
+                name: 'The Ritual',
+                price: '$95',
                 period: 'per visit',
                 highlighted: true,
                 features: [
-                  'Consultation',
-                  'Haircut',
-                  'Beard shape',
-                  'Hot towel finish',
-                  'Style finish',
+                  'Hot towel prep',
+                  'Straight razor finish',
+                  'Soothing post-shave',
+                  'Premium styling',
                 ],
-                ctaLabel: 'Book Signature',
-                ctaHref: '/contact#booking?service=signature',
+                ctaLabel: 'Book The Ritual',
+                ctaHref: '/contact#booking',
               },
               {
-                name: 'Ritual',
-                price: '$75',
+                name: 'Reset',
+                price: '$110',
                 period: 'per visit',
                 features: [
-                  'Consultation',
-                  'Haircut',
-                  'Beard sculpt',
-                  'Scalp detox mini',
-                  'Hot towel finish',
-                  'Premium style finish',
+                  'Exfoliation + cleanse',
+                  'Massage + hydration',
+                  'Style finish',
+                  'Routine recommendations',
                 ],
-                ctaLabel: 'Book Ritual',
-                ctaHref: '/contact#booking?service=ritual',
+                ctaLabel: 'Book Reset',
+                ctaHref: '/contact#booking',
               },
             ]}
           />
-
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { name: 'Hot towel add-on', price: '+$10', note: 'Extra comfort and a cleaner finish.' },
-              { name: 'Beard line-up', price: '+$15', note: 'Edges and symmetry refinement.' },
-              { name: 'Scalp detox', price: '+$20', note: 'Buildup reset + massage.' },
-              { name: 'Gray blending', price: 'from $35', note: 'Natural-looking tone control.' },
-            ].map((a) => (
-              <div
-                key={a.name}
-                className="rounded-xl border border-border bg-card p-6 shadow-sm hover:shadow-md transition-shadow"
-              >
-                <div className="font-semibold">{a.name}</div>
-                <div className="mt-1 text-sm text-muted-foreground">{a.note}</div>
-                <div className="mt-4 text-sm font-medium">{a.price}</div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
-      <section className="py-16 md:py-28 px-4 md:px-8 bg-muted">
+      <section className="py-20 md:py-28 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-              How an appointment flows
-            </h2>
-            <p className="mt-3 text-muted-foreground">
-              A repeatable process keeps results consistent across barbers and services.
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Add-ons & upgrades</h2>
+            <p className="mt-4 text-muted-foreground">
+              Dial in the details—add during your booking request. If you’re unsure, mention your
+              goal and we’ll confirm what fits the time block.
             </p>
           </div>
 
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               {
-                title: 'Consult',
-                description: 'Style goals, growth patterns, and maintenance plan.',
+                title: 'Neck cleanup (between cuts)',
+                description: 'Quick clean line refresh.',
+                meta: '$15 • 15 min',
               },
               {
-                title: 'Craft',
-                description: 'Precision cutting with symmetry checks and clean detailing.',
+                title: 'Eyebrow tidy',
+                description: 'Natural clean-up—no over-thinning.',
+                meta: '$10 • 10 min',
               },
               {
-                title: 'Ritual',
-                description: 'Hot towel, calming finish, and product pairing.',
+                title: 'Beard conditioning treatment',
+                description: 'Softness + shape retention.',
+                meta: '$12 • 10 min',
               },
               {
-                title: 'Refine',
-                description: 'Final adjustments under different lighting angles.',
+                title: 'Scalp detox boost',
+                description: 'Extra exfoliation for heavy buildup.',
+                meta: '$15 • 10 min',
               },
-            ].map((step) => (
+            ].map((a) => (
               <div
-                key={step.title}
-                className="rounded-xl border border-border bg-card p-6 shadow-sm"
+                key={a.title}
+                className="rounded-xl border border-border bg-card text-card-foreground shadow-sm p-6 hover:shadow-md transition-shadow"
               >
-                <div className="text-sm text-muted-foreground">Step</div>
-                <div className="mt-1 text-lg font-semibold">{step.title}</div>
-                <p className="mt-2 text-sm text-muted-foreground">{step.description}</p>
+                <div className="flex items-start justify-between gap-4">
+                  <h3 className="text-lg font-semibold">{a.title}</h3>
+                  <div className="text-sm text-muted-foreground">{a.meta}</div>
+                </div>
+                <p className="mt-2 text-muted-foreground">{a.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="faq" className="py-16 md:py-28 px-4 md:px-8">
+      <section className="py-20 md:py-28 px-4 md:px-8 bg-muted">
         <div className="max-w-7xl mx-auto">
           <FAQAccordion
-            headline="Service FAQ"
+            headline="Service questions"
+            subheadline="Quick answers before you book."
             items={[
               {
-                question: 'Do you take walk-ins?',
+                question: 'Do you do walk-ins?',
                 answer:
-                  'Limited walk-ins are possible, but booking is recommended for guaranteed time slots—especially evenings and weekends.',
+                  'Limited. Booking requests are recommended to lock in a time. If you walk in, we’ll fit you in if the chair is open.',
               },
               {
-                question: 'How long does a Signature appointment take?',
+                question: 'How should I prep for a hot towel shave?',
                 answer:
-                  'Typically 45–60 minutes depending on hair density and beard length, plus any add-ons confirmed during your consult.',
+                  'Arrive with a clean face if possible. If you have sensitive skin, note it in your booking request so we can adjust products.',
               },
               {
-                question: 'Do you do skin fades and longer styles?',
+                question: 'Is hair coloring same-day?',
                 answer:
-                  'Yes—everything from tight fades to medium-long scissor work and textured styles designed to grow out clean.',
+                  'Some services require a quick consult first. Send photos and goals in the booking notes so we can confirm timing.',
               },
               {
-                question: 'What’s included in hair coloring?',
+                question: 'What if I’m not sure what haircut fits me?',
                 answer:
-                  'We offer gray blending and tone refresh. Complex color changes require a consultation to plan timing and upkeep.',
+                  'That’s normal. We’ll recommend based on face shape, lifestyle, and how often you want maintenance.',
               },
             ]}
           />
         </div>
       </section>
 
-      <section className="py-16 md:py-28 px-4 md:px-8">
+      <section className="py-20 md:py-28 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
-          <CTABanner
-            headline="Pick a service. We’ll tailor the finish."
-            description="Send a booking request with your goals and we’ll confirm the best option, timing, and barber match."
-            ctaLabel="Book a Service"
+          <CTAVortex
+            headline="Book once. Rebook with confidence."
+            description="Tell us what you want and when you’re free—we’ll confirm quickly and match the right time block."
+            ctaLabel="Request a Booking"
             ctaHref="/contact#booking"
           />
         </div>

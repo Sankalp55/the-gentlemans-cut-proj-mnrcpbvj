@@ -10,30 +10,25 @@ const config: Config = {
         foreground: "hsl(var(--foreground))",
 
         card: "hsl(var(--card))",
-        border: "hsl(var(--border))",
-        ring: "hsl(var(--ring))",
 
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))"
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))"
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))"
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))"
-        }
+        primary: "hsl(var(--primary))",
+        "primary-foreground": "hsl(var(--primary-foreground))",
+
+        secondary: "hsl(var(--secondary))",
+        "secondary-foreground": "hsl(var(--secondary-foreground))",
+
+        accent: "hsl(var(--accent))",
+
+        muted: "hsl(var(--muted))",
+        "muted-foreground": "hsl(var(--muted-foreground))",
+
+        border: "hsl(var(--border))",
+        ring: "hsl(var(--ring))"
       },
       borderRadius: {
-        lg: "0.75rem",
-        xl: "calc(0.75rem + 0.25rem)",
-        "2xl": "calc(0.75rem + 0.75rem)"
+        lg: "0.375rem",
+        md: "calc(0.375rem - 2px)",
+        sm: "calc(0.375rem - 4px)"
       }
     }
   },

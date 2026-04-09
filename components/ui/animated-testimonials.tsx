@@ -1,46 +1,13 @@
-import * as React from "react";
+"use client";
 
-export type AnimatedTestimonial = {
-  quote: string;
-  name: string;
-  title?: string;
-  src?: string;
-};
-
-export type AnimatedTestimonialsProps = {
-  testimonials: AnimatedTestimonial[];
-  className?: string;
-};
-
-/**
- * Minimal, build-safe implementation.
- * Renders testimonials without animation to satisfy imports.
- */
-export function AnimatedTestimonials({ testimonials, className }: AnimatedTestimonialsProps) {
+export default function AnimatedTestimonials(props: any) {
   return (
-    <div className={className}>
-      <div className="grid gap-6">
-        {testimonials.map((t, idx) => (
-          <figure
-            key={`${t.name}-${idx}`}
-            className="rounded-xl border border-neutral-200/60 bg-white/60 p-6 shadow-sm backdrop-blur dark:border-neutral-800/60 dark:bg-neutral-950/40"
-          >
-            <blockquote className="text-sm leading-relaxed text-neutral-700 dark:text-neutral-200">
-              “{t.quote}”
-            </blockquote>
-            <figcaption className="mt-4 text-sm font-medium text-neutral-900 dark:text-neutral-100">
-              {t.name}
-              {t.title ? (
-                <span className="ml-2 font-normal text-neutral-600 dark:text-neutral-400">
-                  — {t.title}
-                </span>
-              ) : null}
-            </figcaption>
-          </figure>
-        ))}
+    <section className="w-full py-16 px-4 md:px-8">
+      <div className="max-w-6xl mx-auto">
+        {props.headline && <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">{props.headline}</h2>}
+        {props.subheadline && <p className="text-lg text-muted-foreground mb-8 max-w-2xl">{props.subheadline}</p>}
+        {props.children}
       </div>
-    </div>
+    </section>
   );
 }
-
-export default AnimatedTestimonials;

@@ -1,73 +1,65 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { NavbarSticky } from '@/components/blocks/NavbarSticky'
+import { NavbarMinimal } from '@/components/blocks/NavbarMinimal'
 import { FooterMultiColumn } from '@/components/blocks/FooterMultiColumn'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'The Gentlemans Cut — Premium Cuts, Beards & Hot Towel Shaves',
+  title: 'Ironwood Barber Co. | Premium Cuts, Shaves & Scalp Care',
   description:
-    'A dark, refined barbershop offering precision haircuts, beard grooming, styling, coloring, hot towel shaves, and scalp treatments. Book your appointment online.',
+    'A dark, modern barbershop for precision haircuts, beard grooming, styling, coloring, hot towel shaves, and scalp treatments. Book your appointment at Ironwood Barber Co.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-background text-foreground`}>
-        <NavbarSticky
-          logo="The Gentlemans Cut"
+      <body className={`${inter.className} bg-background text-foreground antialiased`}>
+        <NavbarMinimal
+          logo="Ironwood Barber Co."
           navItems={[
             { label: 'Home', href: '/' },
             { label: 'Services', href: '/services' },
             { label: 'Gallery', href: '/gallery' },
             { label: 'Team', href: '/team' },
             { label: 'About', href: '/about' },
-            { label: 'Contact & Booking', href: '/contact' },
+            { label: 'Contact / Book', href: '/contact#booking' },
           ]}
-          ctaLabel="Book Now"
+          ctaLabel="Book"
           ctaHref="/contact#booking"
         />
         <main>{children}</main>
         <FooterMultiColumn
-          brand="The Gentlemans Cut"
-          description="Precision cuts, ritual-level shaves, and scalp care in a dark, refined space. Book in minutes—walk out sharper."
+          brand="Ironwood Barber Co."
+          description="Precision cuts. Ritual-level shaves. Quiet confidence. Ironwood is a calm, detail-first barbershop built for consistent results—so your look holds up in the mirror and in real life."
           columns={[
-            {
-              title: 'Shop',
-              links: [
-                { label: 'Gallery', href: '/gallery' },
-                { label: 'Team', href: '/team' },
-                { label: 'About', href: '/about' },
-              ],
-            },
             {
               title: 'Services',
               links: [
-                { label: 'Services Overview', href: '/services' },
-                { label: 'Pricing', href: '/services#pricing' },
-                { label: 'Service FAQ', href: '/services#faq' },
+                { label: 'Services & Pricing', href: '/services' },
+                { label: 'Gallery', href: '/gallery' },
+                { label: 'Scalp Treatments', href: '/services#scalp' },
               ],
             },
             {
               title: 'Company',
               links: [
-                { label: 'Our Standards', href: '/about#standards' },
-                { label: 'Our Story', href: '/about#story' },
-                { label: 'Contact & Booking', href: '/contact' },
+                { label: 'About', href: '/about' },
+                { label: 'Team', href: '/team' },
+                { label: 'Contact & Booking', href: '/contact#booking' },
               ],
             },
             {
-              title: 'Contact',
+              title: 'Hours',
               links: [
-                { label: 'Book an Appointment', href: '/contact#booking' },
-                { label: 'Visit the Shop', href: '/contact#visit' },
-                { label: 'Call: +1 (000) 000-0000', href: 'tel:+10000000000' },
+                { label: 'Mon–Fri: 10–7', href: '/contact' },
+                { label: 'Sat: 10–5', href: '/contact' },
+                { label: 'Sun: Closed', href: '/contact' },
               ],
             },
           ]}
-          copyright="© 2026 The Gentlemans Cut. All rights reserved."
+          copyright="© 2026 Ironwood Barber Co. All rights reserved."
         />
       </body>
     </html>

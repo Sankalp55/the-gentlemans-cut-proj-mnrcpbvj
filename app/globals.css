@@ -2,48 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Noir Razor palette as HSL CSS variables (derived from blueprint hex) */
+/* HSL values derived from blueprint hex palette */
 :root {
-  --background: 240 13% 5%; /* #0B0B0E */
-  --foreground: 39 38% 93%; /* #F5F1E8 */
+  --background: 240 4% 4%;            /* #0A0A0B */
+  --foreground: 40 41% 93%;           /* #F5F1E8 */
 
-  --card: 233 17% 8%; /* #111218 */
-  --border: 233 10% 18%; /* #2A2B33 */
-  --ring: 47 65% 53%; /* #D4AF37 */
+  --card: 220 18% 7%;                 /* #0F1115 */
 
-  --primary: 47 65% 53%; /* #D4AF37 */
-  --primary-foreground: 240 13% 5%; /* #0B0B0E */
+  --primary: 43 54% 53%;              /* #C8A24A */
+  --primary-foreground: 240 4% 4%;    /* #0A0A0B */
 
-  --secondary: 232 12% 12%; /* #1B1C22 */
-  --secondary-foreground: 39 38% 93%; /* #F5F1E8 */
+  --secondary: 213 12% 14%;           /* #1F2328 */
+  --secondary-foreground: 40 41% 93%; /* #F5F1E8 */
 
-  --accent: 0 73% 42%; /* #B91C1C */
-  --accent-foreground: 33 100% 96%; /* #FFF7ED */
+  --accent: 348 88% 38%;              /* #B80C2F */
 
-  --muted: 230 13% 9%; /* #14151A */
-  --muted-foreground: 44 7% 63%; /* #A7A39A */
+  --muted: 220 13% 9%;                /* #14161A */
+  --muted-foreground: 42 11% 68%;     /* #B6B0A3 */
+
+  --border: 218 12% 19%;              /* #2A2E35 */
+  --ring: 43 54% 53%;                 /* #C8A24A */
 }
 
-/* Blueprint themeMode: dark */
 .dark {
-  --background: 240 13% 5%;
-  --foreground: 39 38% 93%;
+  --background: 240 4% 4%;
+  --foreground: 40 41% 93%;
 
-  --card: 233 17% 8%;
-  --border: 233 10% 18%;
-  --ring: 47 65% 53%;
+  --card: 220 18% 7%;
 
-  --primary: 47 65% 53%;
-  --primary-foreground: 240 13% 5%;
+  --primary: 43 54% 53%;
+  --primary-foreground: 240 4% 4%;
 
-  --secondary: 232 12% 12%;
-  --secondary-foreground: 39 38% 93%;
+  --secondary: 213 12% 14%;
+  --secondary-foreground: 40 41% 93%;
 
-  --accent: 0 73% 42%;
-  --accent-foreground: 33 100% 96%;
+  --accent: 348 88% 38%;
 
-  --muted: 230 13% 9%;
-  --muted-foreground: 44 7% 63%;
+  --muted: 220 13% 9%;
+  --muted-foreground: 42 11% 68%;
+
+  --border: 218 12% 19%;
+  --ring: 43 54% 53%;
 }
 
 @layer base {
@@ -57,6 +56,11 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    font-feature-settings: "ss01" 1, "ss02" 1, "cv01" 1, "cv02" 1;
+    text-rendering: geometricPrecision;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.25);
   }
 }
